@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<!-- Navegación -->
 <nav class="navbar navbar-default" aria-label="Navegación principal">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -30,28 +29,27 @@
   </div>
 </nav>
 
-<!-- Layout Principal -->
+
 <div class="container">
     <div class="row">
-        <!-- Contenido principal: Artículos -->
+       
         <main class="col-xs-12 col-sm-8 col-lg-9" id="contenido" aria-live="polite">
             
-            <!-- ESTADO: Carga (Se oculta mediante JS cuando cargan los datos) -->
+            
             <div id="estado-carga" class="text-center" style="display: none;">
                 <p>Cargando los pergaminos más recientes...</p>
             </div>
 
-            <!-- ESTADO: Vacío (Si no hay artículos) -->
             <div id="estado-vacio" class="alert alert-info" style="display: none;">
                 Aún no hay artículos publicados en esta categoría.
             </div>
 
-            <!-- ESTADO: Error -->
+           
             <div id="estado-error" class="alert alert-warning" style="display: none;">
                 No pudimos conectar con los archivos. Por favor, intenta de nuevo más tarde.
             </div>
 
-            <!-- Componentes principales: Lista de artículos -->
+           
             <article class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">Entendiendo la habilidad de Supervivencia</h2>
@@ -62,7 +60,7 @@
             </article>
         </main>
 
-        <!-- Navegación lateral / Sidebar -->
+      
         <aside class="col-xs-12 col-sm-4 col-lg-3" aria-label="Barra lateral">
             <div class="panel panel-default">
                 <div class="panel-heading">Categorías</div>
@@ -78,6 +76,26 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+    
+        $('#estado-carga').show();
+        $('article').hide(); 
+
+
+        setTimeout(function() {
+            
+            $('#estado-carga').hide();
+            
+  
+            $('#estado-error').show();
+            
+    
+        }, 10000); 
+    });
+</script>
+
 </body>
 </html>
-<!-- Comentarios HTML -->
