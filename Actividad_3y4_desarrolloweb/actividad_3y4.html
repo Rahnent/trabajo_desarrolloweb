@@ -78,5 +78,27 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Script para la Actividad 4: Prueba de Resiliencia -->
+<script>
+    $(document).ready(function() {
+        // 1. Mostrar estado de carga al inicio y ocultar los artículos
+        $('#estado-carga').show();
+        $('article').hide(); 
+
+        // 2. Simulación de los 10 segundos (10000 milisegundos) de la API
+        setTimeout(function() {
+            // Se acaba el tiempo de carga
+            $('#estado-carga').hide();
+            
+            // 3. Mostramos el estado de error de forma controlada
+            $('#estado-error').show();
+            
+            // La degradación elegante se cumple porque la barra lateral (aside) 
+            // y la navegación siguen intactas, el usuario no se queda en una pantalla blanca.
+        }, 10000); 
+    });
+</script>
+
 </body>
 </html>
