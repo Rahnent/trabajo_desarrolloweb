@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cómics - Mahvel Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .marvel-red { background-color: #e23636 !important; color: white; }
+        .marvel-red-text { color: #e23636 !important; }
+        .bg-dark-custom { background-color: #202020 !important; }
+    </style>
+</head>
+<body class="bg-dark-custom text-light d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark border-bottom border-danger border-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="index.html">
+                <span class="marvel-red px-2 py-1">Mahvel</span> Comics
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button> 
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="comics.html">Cómics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="personajes.html">Personajes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>                           
+                </ul>
+            </div>  
+        </div>
+    </nav>
+
+    <div class="container mt-5 mb-4 text-center">
+        <h2 class="display-5 fw-bold text-uppercase marvel-red-text border-bottom border-danger d-inline-block pb-2">Lanzamientos Destacados</h2>
+    </div>
+
+    <div class="container mb-5 flex-grow-1">
+        
+        <div class="row align-items-center mb-5 bg-dark p-3 rounded border border-secondary">
+            <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+                <img src="img/civil.jpg" class="img-fluid rounded border border-danger" alt="Comic 1" style="max-height: 250px; object-fit: cover;">
+            </div>
+            <div class="col-12 col-md-8">
+                <h3 class="marvel-red-text">Civil War (Edición Especial)</h3>
+                <p class="text-secondary"><strong>Escritor:</strong> Mark Millar | <strong>Artista:</strong> Steve McNiven</p>
+                <p>El universo Marvel se divide. Tras un trágico incidente, el gobierno exige que todos los superhéroes se registren. Iron Man apoya la medida, mientras que el Capitán América se rebela. ¿De qué lado estás?</p>
+                <button class="btn btn-outline-light">Ver Detalles</button>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5 bg-dark p-3 rounded border border-secondary">
+            <div class="col-12 col-md-4 order-md-2 text-center mb-3 mb-md-0">
+                <img src="img/guante.jpg" class="img-fluid rounded border border-danger" alt="Comic 2" style="max-height: 250px; object-fit: cover;">
+            </div>
+            <div class="col-12 col-md-8 order-md-1">
+                <h3 class="marvel-red-text">Infinity Gauntlet</h3>
+                <p class="text-secondary"><strong>Escritor:</strong> Jim Starlin | <strong>Artista:</strong> George Pérez</p>
+                <p>Thanos ha reunido las seis Gemas del Infinito y ahora tiene control total sobre el espacio, el tiempo, el poder, la realidad, la mente y el alma. Los héroes restantes deben unirse en una batalla desesperada por salvar el universo.</p>
+                <button class="btn btn-outline-light">Ver Detalles</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="container-fluid bg-black text-center py-4 border-top border-danger border-3 mt-auto">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-white-50 mb-0">&copy; 2026 Mahvel Fan Page</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
