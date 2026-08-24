@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mahvel Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .marvel-red { background-color: #e23636 !important; color: white; }
+        .marvel-red-text { color: #e23636 !important; }
+        .bg-dark-custom { background-color: #202020 !important; }
+    </style>
+</head>
+<body class="bg-dark-custom text-light d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark border-bottom border-danger border-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="index.html">
+                <span class="marvel-red px-2 py-1">Mahvel</span> Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button> 
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="comics.html">Cómics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="personajes.html">Personajes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>                           
+                </ul>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Acceso S.H.I.E.L.D.
+                </button>                             
+            </div>  
+        </div>
+    </nav>
+
+    <div class="container mt-5 mb-5 flex-grow-1">
+        <div class="row g-4"> 
+            
+            <div class="col-12 col-md-4">
+                <div class="card bg-dark text-white border-secondary h-100">
+                    <img src="img/spiderman.jpg" class="card-img-top" alt="Spider-Man" style="height: 200px; object-fit: contain; background-color: #202020;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">The Amazing Spider-Man</h5>
+                        <p class="card-text text-secondary">Peter Parker se enfrenta a nuevos desafíos en las calles de Nueva York.</p>
+                        <a href="comics.html" class="btn btn-danger mt-auto">Leer más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card bg-dark text-white border-secondary h-100">
+                    <img src="img/guante.jpg" class="card-img-top" alt="Thanos" style="height: 200px; object-fit: contain; background-color: #202020;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Avengers: Endgame Era</h5>
+                        <p class="card-text text-secondary">Los héroes más poderosos de la Tierra se unen una vez más.</p>
+                        <a href="comics.html" class="btn btn-danger mt-auto">Leer más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card bg-dark text-white border-secondary h-100">
+                    <img src="img/xmen.jpg" class="card-img-top" alt="X-Men" style="height: 200px; object-fit: contain; background-color: #202020;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">X-Men: Krakoa</h5>
+                        <p class="card-text text-secondary">La nueva era de los mutantes ha comenzado en la isla viviente.</p>
+                        <a href="comics.html" class="btn btn-danger mt-auto">Leer más</a>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+    </div> 
+
+    <footer class="container-fluid bg-black text-center py-4 border-top border-danger border-3 mt-auto">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-white-50 mb-0">&copy; 2026 Mahvel Fan Page</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Autenticación -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light border-danger">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title marvel-red-text">Autenticación S.H.I.E.L.D.</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="index.html">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Credencial (Email):</label>
+                            <input type="email" class="form-control bg-dark text-white border-secondary" id="email" placeholder="agente@shield.gov" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd" class="form-label">Clave de Autorización:</label>
+                            <input type="password" class="form-control bg-dark text-white border-secondary" id="pwd" placeholder="******" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"> Recordar acceso
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100">Acceder al Sistema</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>        
+
+</body>
+</html>
