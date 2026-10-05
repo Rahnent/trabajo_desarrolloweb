@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Mecánicas de Rol</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Navegación -->
+<nav class="navbar navbar-default" aria-label="Navegación principal">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false">
+        <span class="sr-only">Alternar navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Rol & Dados</a>
+    </div>
+    <div class="collapse navbar-collapse" id="menu-principal">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Inicio</a></li>
+        <li><a href="#">Reglas</a></li>
+        <li><a href="#">Campañas</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Layout Principal -->
+<div class="container">
+    <div class="row">
+        <!-- Contenido principal: Artículos -->
+        <main class="col-xs-12 col-sm-8 col-lg-9" id="contenido" aria-live="polite">
+            
+            <!-- ESTADO: Carga (Se oculta mediante JS cuando cargan los datos) -->
+            <div id="estado-carga" class="text-center" style="display: none;">
+                <p>Cargando los pergaminos más recientes...</p>
+            </div>
+
+            <!-- ESTADO: Vacío (Si no hay artículos) -->
+            <div id="estado-vacio" class="alert alert-info" style="display: none;">
+                Aún no hay artículos publicados en esta categoría.
+            </div>
+
+            <!-- ESTADO: Error -->
+            <div id="estado-error" class="alert alert-warning" style="display: none;">
+                No pudimos conectar con los archivos. Por favor, intenta de nuevo más tarde.
+            </div>
+
+            <!-- Componentes principales: Lista de artículos -->
+            <article class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Entendiendo la habilidad de Supervivencia</h2>
+                </div>
+                <div class="panel-body">
+                    <p>Una guía rápida sobre cómo aplicar las mecánicas de rastreo y supervivencia en distintos terrenos...</p>
+                </div>
+            </article>
+        </main>
+
+        <!-- Navegación lateral / Sidebar -->
+        <aside class="col-xs-12 col-sm-4 col-lg-3" aria-label="Barra lateral">
+            <div class="panel panel-default">
+                <div class="panel-heading">Categorías</div>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Mecánicas (Velocidad)</a></li>
+                    <li class="list-group-item"><a href="#">Creación de Personajes</a></li>
+                    <li class="list-group-item"><a href="#">Bestiario</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
