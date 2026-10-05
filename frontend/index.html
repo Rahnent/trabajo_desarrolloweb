@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Laboratorio de Seguridad</title>
+  <style>
+    body { font-family: sans-serif; margin: 30px; }
+    .card { border: 1px solid #ccc; padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+    button { cursor: pointer; padding: 6px 12px; margin-right: 5px; }
+    pre { background: #eee; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Panel de Demostración de Seguridad</h1>
+  
+  <div class="card">
+    <h3>1. Login</h3>
+    <input type="text" id="username" placeholder="ana o ernesto" value="ana">
+    <input type="password" id="password" placeholder="contraseña" value="1234">
+    <button onclick="login()">Iniciar Sesión</button>
+    <button onclick="logout()">Cerrar Sesión</button>
+  </div>
+
+  <div class="card">
+    <h3>2. Acciones del Sistema</h3>
+    <button onclick="getMe()">Consultar Usuario (/auth/me)</button>
+    <button onclick="getProducts()">Ver Productos (/api/products)</button>
+    <button onclick="deleteProduct(1)">Eliminar Producto ID 1 (Admin)</button>
+  </div>
+
+  <div class="card">
+    <h3>Salida / Consola:</h3>
+    <pre id="output">Esperando acciones...</pre>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
