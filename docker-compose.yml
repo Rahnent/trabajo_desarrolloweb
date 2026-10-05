@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault-dev
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: dev-only-token
+    ports:
+      - "8200:8200"
+
+  auth-service:
+    build:
+      context: .
+      dockerfile: auth_service/Dockerfile
+    container_name: auth-service
+    ports:
+      - "8100:8100"
+
+  backend-api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: backend-api
+    ports:
+      - "9000:9000"
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: gateway/Dockerfile
+    container_name: api-gateway
+    environment:
+      VAULT_URL: "http://vault:8200"
+      VAULT_TOKEN: "dev-only-token"
+      AUTH_URL: "http://auth-service:8100"
+      BACKEND_URL: "http://backend-api:9000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - vault
+      - auth-service
+      - backend-api
