@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma y Café</title>
+    
+    <!-- Bootstrap 3.3.7 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Elegante Serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="sidebarMenu" class="sidebar">
+        <button class="close-sidebar" onclick="toggleSidebar()"><i class="fa-solid fa-times"></i></button>
+        <ul>
+            <li><a href="#" onclick="navigate('inicio')"><i class="fa-solid fa-home"></i> Inicio</a></li>
+            <li><a href="#" onclick="navigate('menu')"><i class="fa-solid fa-mug-hot"></i> Menú</a></li>
+            <li><a href="#" onclick="navigate('historia')"><i class="fa-solid fa-book-open"></i> Historia</a></li>
+        </ul>
+    </div>
+
+    <nav class="navbar-custom">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="menu-btn" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar..." aria-label="Buscar">
+                    <i class="fa-solid fa-search"></i>
+                </div>
+            </div>
+            <div>
+                <h1 class="brand-title">AROMA Y CAFÉ</h1>
+            </div>
+            <div>
+                <div class="brand-logo">
+                    <i class="fa-solid fa-mug-saucer"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Marca de agua central -->
+    <i class="fa-solid fa-mug-hot watermark"></i>
+
+    <div class="container" style="flex: 1; margin-top: 20px;">
+        
+        <!-- VISTA 1: INICIO -->
+        <div id="view-inicio" class="spa-view active">
+            <div class="row">
+                
+                <!-- Contenido Principal (10 Columnas) -->
+                <div class="col-md-10">
+                    
+                    <!-- Grilla de Productos -->
+                    <div class="row products-grid">
+                        <div class="col-sm-6">
+                            <div class="product-wrapper">
+                                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=200&h=200&fit=crop" alt="Café Popular 2" class="product-img">
+                                <div class="product-box" onclick="showModal('Café Especial', 'Delicioso café tostado artesanalmente.')">
+                                    <h4 class="product-title">CAFE<br>POPULAR 2 +<br>DESC</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="product-wrapper">
+                                <img src="https://images.unsplash.com/photo-1585494156145-1c60a4fe952b?w=150&h=150&fit=crop" alt="Café Popular 1" class="product-img">
+                                <div class="product-box" onclick="showModal('Café Clásico', 'Nuestro café clásico más pedido por los clientes.')">
+                                    <h4 class="product-title">CAFE<br>POPULAR 1 +<br>DESC</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="product-wrapper">
+                                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=200&h=200&fit=crop" alt="Pastel Popular 1" class="product-img">
+                                <div class="product-box" onclick="showModal('Pastel Popular 1', 'Suave bizcocho relleno de fresas frescas.')">
+                                    <h4 class="product-title">Pastel Popular 1</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="product-wrapper">
+                                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=200&fit=crop" alt="Pastel Popular 2" class="product-img">
+                                <div class="product-box" onclick="showModal('Pastel Popular 2', 'Exquisita tarta de red velvet y fresas.')">
+                                    <h4 class="product-title">Pastel Popular 2</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección Historia y Foto (Mitad y Mitad) -->
+                    <div class="history-section">
+                        <div class="history-text">
+                            <h3>HISTORIA O<br>DESCRIPCION<br>DE LA<br>CAFETERIA</h3>
+                        </div>
+                        <div class="history-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=600&fit=crop" alt="Interior Cafetería Rústica" class="history-img">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Barra Lateral de Ads (2 Columnas) -->
+                <div class="col-md-2">
+                    <div class="ad-container" onclick="showModal('Publicidad', 'Espacio para anuncio comercial 1')">
+                        ADS
+                    </div>
+                    <div class="ad-container" onclick="showModal('Publicidad', 'Espacio para anuncio comercial 2')">
+                        ADS
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- VISTA 2: MENÚ -->
+        <div id="view-menu" class="spa-view">
+            <div class="jumbotron" style="background-color: rgba(255,255,255,0.7); border: 1px solid var(--primary-color);">
+                <h2 class="serif-font text-center" style="color: var(--primary-color);">Nuestra Carta Completa</h2>
+                <p class="text-center lead">Próximamente desplegaremos todos nuestros productos de especialidad aquí.</p>
+                <div class="text-center">
+                    <button class="btn btn-default" style="background-color: var(--primary-color); color: white;" onclick="navigate('inicio')">Regresar al Inicio</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA 3: HISTORIA -->
+        <div id="view-historia" class="spa-view">
+            <div class="panel panel-default" style="border-color: var(--primary-color);">
+                <div class="panel-body" style="background-color: rgba(255,255,255,0.8); padding: 40px;">
+                    <h2 class="serif-font" style="color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">Sobre Nosotros</h2>
+                    <p style="font-size: 18px; line-height: 1.8; margin-top: 20px;">
+                        Aroma y Café es un rincón diseñado para los verdaderos amantes del café. Nuestra madera rústica y el aroma constante a granos recién tostados te invitan a pausar el tiempo y disfrutar del momento. Cada taza que servimos es preparada con dedicación por nuestros baristas expertos.
+                    </p>
+                    <button class="btn btn-default" style="background-color: var(--primary-color); color: white; margin-top: 20px;" onclick="navigate('inicio')">Regresar al Inicio</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="footer-icons">
+                <a href="#" onclick="showModal('Facebook', 'Redirigiendo a nuestra página de Facebook.')"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" onclick="showModal('Instagram', 'Visita nuestro perfil de Instagram.')"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" onclick="showModal('Email', 'Contáctanos por correo electrónico.')"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+            <p style="margin-top: 15px; font-size: 14px; opacity: 0.8;">&copy; 2026 Aroma y Café. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Personalizado -->
+    <div id="appModal" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <h3 id="modalTitle" class="serif-font">Título</h3>
+            <p id="modalText">Mensaje del sistema.</p>
+            <button onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Scripts externos -->
+    <script src="script.js"></script>
+</body>
+</html>

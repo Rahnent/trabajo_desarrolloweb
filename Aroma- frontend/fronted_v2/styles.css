@@ -1,0 +1,395 @@
+:root {
+    --bg-color: #f7f3ee; /* Beige más limpio */
+    --primary-color: #4a332a; /* Marrón café oscuro */
+    --secondary-color: #8c6b5d; /* Marrón claro */
+    --accent-color: #d4a373; /* Tono cálido */
+    --text-dark: #2a1a11;
+    --text-light: #f5f5f5;
+    --ad-color: #e6e2dd;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Lato', sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Tipografía */
+h1, h2, h3, h4, .serif-font {
+    font-family: 'Playfair Display', serif;
+}
+
+.section-title {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* Utilidades Box Model y Flexbox (Rúbrica C4 y C5) */
+.mt-15 { margin-top: 15px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-15 { margin-bottom: 15px; }
+.p-20 { padding: 20px; }
+.hidden { display: none !important; }
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navbar */
+.navbar-custom {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 0;
+    border-radius: 8px;
+    margin: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: none;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-btn, .cart-btn {
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: var(--text-light);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.menu-btn:hover, .cart-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.cart-btn { position: relative; }
+.badge {
+    position: absolute;
+    top: -5px; right: -5px;
+    background-color: #d9534f;
+    font-size: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.9);
+    border-radius: 20px;
+    padding: 0 15px;
+    height: 35px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 150px;
+    font-family: 'Lato', sans-serif;
+    color: var(--text-dark);
+}
+
+.brand-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+
+/* Layout Principal */
+.main-container {
+    flex: 1;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* Tarjetas de Producto Generadas Dinámicamente (Rúbrica C7) */
+.products-grid {
+    margin-bottom: 30px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+    /* Box model estricto */
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.product-img-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Empuja el botón hacia abajo si el texto es corto */
+}
+
+.product-title {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.product-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.product-price {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+/* Botones */
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-primary-custom:hover { background-color: var(--secondary-color); }
+.btn-retry {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.btn-retry:hover { background-color: var(--primary-color); color: white; }
+
+/* Estados de Carga (Rúbrica C8) */
+.status-message {
+    text-align: center;
+    padding: 40px;
+    color: var(--secondary-color);
+}
+
+/* Sección Historia */
+.history-section {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.history-text {
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.history-img-wrapper {
+    flex: 1;
+}
+
+.history-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 250px;
+}
+
+/* Sidebar Ads */
+.sidebar-title {
+    border-bottom: 2px solid var(--ad-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.ad-container {
+    background-color: var(--ad-color);
+    border-radius: 8px;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.ad-container:hover {
+    background-color: var(--accent-color);
+}
+
+/* Sidebar Navegación (Off-canvas) */
+.sidebar {
+    position: fixed;
+    top: 0; left: -280px;
+    width: 250px; height: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    z-index: 1050;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    padding-top: 30px;
+}
+
+.sidebar.open { left: 0; }
+
+.close-sidebar {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: none; border: none;
+    color: white; font-size: 24px;
+    cursor: pointer;
+}
+
+.sidebar ul {
+    list-style: none; padding: 0; margin-top: 40px;
+}
+
+.sidebar ul li a {
+    display: block; padding: 15px 25px;
+    color: var(--text-light); text-decoration: none;
+    font-size: 18px; font-family: 'Playfair Display', serif;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: var(--accent-color);
+}
+
+/* Vistas SPA */
+.spa-view {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+.spa-view.active { display: block; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Vistas secundarias */
+.custom-jumbo {
+    background-color: white;
+    border: 1px solid var(--ad-color);
+    border-radius: 8px;
+}
+.custom-panel {
+    border-color: var(--ad-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.panel-content { padding: 40px; }
+.lead-text { font-size: 18px; line-height: 1.8; margin-top: 20px; color: #555; }
+
+/* Footer */
+.footer-custom {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0 20px 0;
+    margin-top: auto;
+}
+
+.footer-icons a {
+    color: var(--text-light);
+    font-size: 24px; margin: 0 15px;
+    transition: color 0.3s;
+}
+.footer-icons a:hover { color: var(--accent-color); }
+.copyright { margin-top: 15px; font-size: 14px; opacity: 0.7; }
+
+/* Modal */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2000; opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+}
+.custom-modal-overlay.active { opacity: 1; pointer-events: auto; }
+.custom-modal-box {
+    background: white; padding: 40px; border-radius: 8px;
+    text-align: center; width: 90%; max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Responsividad (Grid System y Comportamiento C3) */
+@media (max-width: 767px) {
+    /* En móviles, la historia se apila */
+    .history-section { flex-direction: column; }
+    .brand-title { font-size: 18px; letter-spacing: 0; }
+    /* Las tarjetas tomarán col-xs-12 gracias a las clases de Bootstrap en JS */
+}

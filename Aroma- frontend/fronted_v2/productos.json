@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "nombre": "Café Especial",
+        "descripcion": "Delicioso café tostado artesanalmente.",
+        "precio": 3500,
+        "imagen": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400&h=300&fit=crop"
+    },
+    {
+        "id": 2,
+        "nombre": "Café Clásico",
+        "descripcion": "Nuestro café clásico más pedido por los clientes.",
+        "precio": 2800,
+        "imagen": "https://images.unsplash.com/photo-1585494156145-1c60a4fe952b?w=400&h=300&fit=crop"
+    },
+    {
+        "id": 3,
+        "nombre": "Pastel de Fresa",
+        "descripcion": "Suave bizcocho relleno de fresas frescas.",
+        "precio": 4500,
+        "imagen": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop"
+    },
+    {
+        "id": 4,
+        "nombre": "Red Velvet",
+        "descripcion": "Exquisita tarta de red velvet.",
+        "precio": 5000,
+        "imagen": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"
+    }
+]

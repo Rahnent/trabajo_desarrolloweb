@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: ./api-gateway  # Apunta a la carpeta de tu Gateway
+    ports:
+      - "8000:8000"       # Único puerto expuesto al exterior (hacia el frontend)
+    networks:
+      - aroma-network
+
+  inventory-service:
+    build: ./backend-api  # Apunta a la carpeta de tu backend (Módulo 10)
+    expose:
+      - "9000"            # Expuesto SOLO a la red interna, no accesible desde fuera
+    networks:
+      - aroma-network
+
+  vault:
+    image: hashicorp/vault:latest
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "token-secreto-aroma"
+      VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+    cap_add:
+      - IPC_LOCK
+    networks:
+      - aroma-network
+
+networks:
+  aroma-network:
+    driver: bridge

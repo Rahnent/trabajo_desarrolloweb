@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma y Café</title>
+    
+    <!-- Bootstrap 3.3.7 CSS (Grid System) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="sidebarMenu" class="sidebar">
+        <button class="close-sidebar" onclick="toggleSidebar()"><i class="fa-solid fa-times"></i></button>
+        <ul>
+            <li><a href="#" onclick="navigate('inicio')"><i class="fa-solid fa-home"></i> Inicio</a></li>
+            <li><a href="#" onclick="navigate('menu')"><i class="fa-solid fa-mug-hot"></i> Menú</a></li>
+            <li><a href="#" onclick="navigate('historia')"><i class="fa-solid fa-book-open"></i> Historia</a></li>
+        </ul>
+    </div>
+
+    <nav class="navbar-custom">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="menu-btn" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="search-bar hidden-xs"> <!-- Se oculta en móviles extra pequeños para mejor responsividad -->
+                    <input type="text" placeholder="Buscar..." aria-label="Buscar">
+                    <i class="fa-solid fa-search"></i>
+                </div>
+            </div>
+            <div>
+                <h1 class="brand-title">AROMA Y CAFÉ</h1>
+            </div>
+            <div class="header-right">
+                 <!-- Botón del carrito para simular acciones (C8 de la rúbrica) -->
+                 <button class="cart-btn" onclick="simularCompra()">
+                    <i class="fa-solid fa-cart-shopping"></i> <span id="cart-count" class="badge">0</span>
+                </button>
+                <div class="brand-logo hidden-xs">
+                    <i class="fa-solid fa-mug-saucer"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Marca de agua central -->
+    <i class="fa-solid fa-mug-hot watermark"></i>
+
+    <div class="container main-container">
+        
+        <!-- VISTA 1: INICIO -->
+        <div id="view-inicio" class="spa-view active">
+            <div class="row">
+                
+                <!-- Contenido Principal (Usando Grid: 9 columnas en desktop, 12 en tablet/móvil) -->
+                <div class="col-md-9 col-sm-12">
+                    
+                    <h2 class="section-title serif-font">Nuestras Especialidades</h2>
+
+                    <!-- Estados de carga y error para el servicio Dummy (Rúbrica C8) -->
+                    <div id="loading-state" class="status-message">
+                        <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
+                        <p>Cargando los mejores aromas...</p>
+                    </div>
+                    <div id="error-state" class="status-message hidden">
+                        <i class="fa-solid fa-circle-exclamation fa-2x" style="color: #d9534f;"></i>
+                        <p>Oops, parece que se derramó el café. No pudimos cargar el menú.</p>
+                        <button class="btn-retry" onclick="cargarProductos()">Reintentar</button>
+                    </div>
+
+                    <!-- Contenedor donde JS inyectará los productos dinámicamente -->
+                    <div id="catalogo-productos" class="row products-grid hidden">
+                        <!-- Aquí se insertan los divs col-md-4 col-sm-6 col-xs-12 desde JS -->
+                    </div>
+
+                    <!-- Sección Historia y Foto (Mitad y Mitad - Flexbox) -->
+                    <div class="history-section">
+                        <div class="history-text">
+                            <h3 class="serif-font">La magia detrás de cada taza</h3>
+                            <p>Descubre el origen de nuestros granos y la pasión de nuestros baristas.</p>
+                            <button class="btn-primary-custom mt-15" onclick="navigate('historia')">Leer más</button>
+                        </div>
+                        <div class="history-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=600&fit=crop" alt="Interior Cafetería Rústica" class="history-img img-responsive">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Barra Lateral de Ads (3 columnas en desktop, oculta en móvil) -->
+                <div class="col-md-3 hidden-sm hidden-xs">
+                    <h4 class="sidebar-title">Recomendados</h4>
+                    <div class="ad-container flex-center" onclick="showModal('Promo Matutina', 'Café + Croissant por $3.500')">
+                        <i class="fa-solid fa-sun fa-2x mb-10"></i>
+                        <span>Promo Matutina</span>
+                    </div>
+                    <div class="ad-container flex-center" onclick="showModal('Especial de Tarde', '2x1 en Trozos de Pastel')">
+                         <i class="fa-solid fa-cake-candles fa-2x mb-10"></i>
+                         <span>Especial Tarde</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- VISTA 2: MENÚ -->
+        <div id="view-menu" class="spa-view">
+            <div class="jumbotron custom-jumbo">
+                <h2 class="serif-font text-center">Nuestra Carta Completa</h2>
+                <p class="text-center lead">Próximamente desplegaremos todos nuestros productos de especialidad aquí.</p>
+                <div class="text-center">
+                    <button class="btn-primary-custom" onclick="navigate('inicio')">Regresar al Inicio</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA 3: HISTORIA -->
+        <div id="view-historia" class="spa-view">
+            <div class="panel panel-default custom-panel">
+                <div class="panel-body panel-content">
+                    <h2 class="serif-font section-title">Sobre Nosotros</h2>
+                    <p class="lead-text">
+                        Aroma y Café es un rincón diseñado para los verdaderos amantes del café. Nuestra madera rústica y el aroma constante a granos recién tostados te invitan a pausar el tiempo y disfrutar del momento. Cada taza que servimos es preparada con dedicación por nuestros baristas expertos.
+                    </p>
+                    <button class="btn-primary-custom mt-15" onclick="navigate('inicio')">Regresar al Inicio</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="footer-icons">
+                <a href="#" onclick="showModal('Facebook', 'Redirigiendo a nuestra página de Facebook.')"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" onclick="showModal('Instagram', 'Visita nuestro perfil de Instagram.')"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" onclick="showModal('Email', 'Contáctanos por correo electrónico.')"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Aroma y Café. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Personalizado (Estados de éxito/aviso) -->
+    <div id="appModal" class="custom-modal-overlay">
+        <div class="custom-modal-box flex-column-center">
+            <i id="modalIcon" class="fa-solid fa-circle-info fa-3x mb-15" style="color: var(--primary-color);"></i>
+            <h3 id="modalTitle" class="serif-font mt-0">Título</h3>
+            <p id="modalText">Mensaje del sistema.</p>
+            <button class="btn-primary-custom mt-15" onclick="closeModal()">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Scripts externos -->
+    <script src="script.js"></script>
+</body>
+</html>
