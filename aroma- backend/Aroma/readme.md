@@ -1,4 +1,4 @@
-Integrantes: FREDDY JELDRES, Matias Castillo
+Integrantes: Freddy Jeldres, Matias Castillo
 
 # ☕ Sistema Backend Seguro "Aroma & Café"
 
